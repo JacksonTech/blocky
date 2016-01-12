@@ -57,7 +57,7 @@ public class ModelProgram extends GLES20Program
 			"varying lowp vec4 fColor;\n" +
 			"varying lowp vec2 fTexture;\n" +
 		    "void main(void) {\n" +
-		    "\tvec4 color = fColor * texture2D(fTextureSampler, fTexture);\n" +
+		    "\tlowp vec4 color = fColor * texture2D(fTextureSampler, fTexture);\n" +
 		    "\tif (color.a == 0.0) discard;" +
 		    "\tgl_FragColor = color;\n" +
 		    "}"

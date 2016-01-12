@@ -32,10 +32,10 @@ public class RainFogProgram extends GLES20Program
 				"const vec4 fogcolor = vec4(0.6, 0.6, 0.6, 1.0);\n" +
 				"const float fogdensity = 0.0002;\n" +
 		    "void main(void) {\n" +
-		    "\tvec4 color = fColor * texture2D(fTextureSampler, fTexture);\n" +
+		    "\tlowp vec4 color = fColor * texture2D(fTextureSampler, fTexture);\n" +
 		    "\tif (color.a == 0.0) discard;" +
-		    	"\tfloat z = gl_FragCoord.z / gl_FragCoord.w;\n" +
-		    	"\tfloat fog = clamp(exp(-fogdensity * z * z), 0.05, 1.0);\n" +
+		    	"\thighp float z = gl_FragCoord.z / gl_FragCoord.w;\n" +
+		    	"\thighp float fog = clamp(exp(-fogdensity * z * z), 0.05, 1.0);\n" +
 			    "\tgl_FragColor = mix(fogcolor, color, fog);\n" +
 		    "}"
 		);
